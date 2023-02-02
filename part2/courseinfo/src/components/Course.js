@@ -36,12 +36,22 @@ const Header = (props) => {
     )
   }
   
+  const CourseSum = ({ parts }) => {
+    
+    return (
+      <div>
+        <p>Sum of all exercises: {parts.reduce((sum, part) => {return sum + part.exercises;}, 0)}</p>
+      </div>
+    )
+  }
+
   const Course = ({course}) => {
     return (
       <>
         <Header course={course.name} />
         <Content parts={course.parts} />
         <Total parts={course.parts} />
+        <CourseSum parts={course.parts}/>
       </>
     )
   }
